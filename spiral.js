@@ -27,7 +27,6 @@ const spiral = num => {
   let matrix = build2d(num);
   let arr = [];
 
-  //while matrix.length > 0 
   while (matrix.length > 0) {
 
     if (matrix.length === 1) {
@@ -35,19 +34,16 @@ const spiral = num => {
       break;
     }
 
-    //push top row to arr and remove top row
-    let topRow = matrix.shift();
-    arr.push(topRow);
+    //push top row to arr and remove top row from input
+    arr.push(matrix.shift());
 
-    //push right column and remove right column
+    //push right column into arr and remove right column from input
     matrix.forEach(el => {
-      let right = el.pop(); //pop removes last element from array and then stores it in 'right'
-      arr.push(right);
+      arr.push(el.pop());
     });
     
-    //push bottom (reverse) and remove bottom row
-    let bottom = matrix.pop().reverse(); //remove last row from matrix, reverses it, then stores it in 'bottom'
-    arr.push(bottom);
+    //push bottom (reverse) and remove bottom row from input
+    arr.push(matrix.pop().reverse());
 
     //store left column items in array and push them in reverse order to arr
     let left = []
